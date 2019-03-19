@@ -25,6 +25,7 @@ cd linux-5.0
 make i386_defconfig
 make -j8
 ```
+![编译](https://github.com/llc1024/Linux-5.0-/blob/master/TIM%E6%88%AA%E5%9B%BE20190318222028.png)
 
 3、制作根文件系统，下载并编译menuOS
 
@@ -45,7 +46,7 @@ find . | cpio -o -Hnewc | gzip -9 > ../rootfs.img
 ```
 qemu-system-i386 -kernel linux-5.0/arch/x86/boot/bzImage -initrd rootfs.img
 ```
-
+![menuos](https://github.com/llc1024/Linux-5.0-/blob/master/TIM%E6%88%AA%E5%9B%BE20190318224150.png)
 然后打开一个新的终端
 
 ```
@@ -99,7 +100,7 @@ int main()
 }
 ```
 重新编译后
-
+![重新编译](https://github.com/llc1024/Linux-5.0-/blob/master/TIM%E6%88%AA%E5%9B%BE20190319130525.png)
 调用成功，之后再进行调试。
 
 创建41.c文件
@@ -136,7 +137,8 @@ gcc -g 41.c -o 41 -m32
 gdb -q
 (gdb) file 41
 ```
-
+![调试1](https://github.com/llc1024/Linux-5.0-/blob/master/TIM%E6%88%AA%E5%9B%BE20190319122426.png)
+![调试2](https://github.com/llc1024/Linux-5.0-/blob/master/TIM%E6%88%AA%E5%9B%BE20190319123821.png)
 ##系统调用工作机制
 
 系统调用是Linux内核提供的基础服务入口，通过使用这一机制，应用程序可以使用内核的一些专门功能。在分析系统调用之前，以下三点需要了解：
